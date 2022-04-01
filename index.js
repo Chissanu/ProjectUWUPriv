@@ -12,7 +12,7 @@ var server = app.listen(4000, function() {
 app.use(express.static('public'));
 
 app.get('/game', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/game/game.html'));
+    res.sendFile(path.join(__dirname, 'public/game/lobby.html'));
 });
 
 app.get('/py', runPy);
