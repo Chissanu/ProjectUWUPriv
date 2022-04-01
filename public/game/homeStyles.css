@@ -1,0 +1,14 @@
+body {
+    background-color: #F8ECAE;
+}
+
+#rec33 {
+    /* Rectangle 33 */
+    position: relative;
+    width: 1230px;
+    height: 800px;
+    left: 10px;
+    top: 50px;
+    background: #DDD4A2;
+    border-radius: 73px;
+}
