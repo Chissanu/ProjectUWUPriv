@@ -59,3 +59,14 @@ body {
     text-align: center;
     color: #FFFFFF;
 }
+
+#rec33 {
+    /* Rectangle 33 */
+    position: relative;
+    width: 1230px;
+    height: 800px;
+    left: 320px;
+    top: 60px;
+    background: #DDD4A2;
+    border-radius: 73px;
+}
