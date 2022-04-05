@@ -15,6 +15,11 @@ app.get('/game', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/game/lobby.html'));
 });
 
+app.get('/game/lobby', function(req, res) {
+    res.send("tagId is set to " + req.query.tagId);
+    res.sendFile(path.join(__dirname, 'public/gameLobby/gameLobby.html'));
+});
+
 app.get('/py', runPy);
 
 function runPy(req, res) {
@@ -33,10 +38,6 @@ var io = socket(server);
 io.on('connection', function(socket) {
     console.log('made socket connection', socket.id);
 
-    socket.on('chat', function(data) {
-        io.sockets.emit('chat', data);
-    })
-
     socket.on('gameBtn', function() {
         console.log('Running Game');
     })
@@ -45,7 +46,18 @@ io.on('connection', function(socket) {
         console.log('Running Custom');
     })
 
-    socket.on('typing', function(data) {
-        socket.broadcast.emit('typing', data);
+    // King Game Btn
+    socket.on('kingBtn', function() {
+        console.log('Pressing King Game');
+    });
+
+    // Truth or Dare Btn
+    socket.on('truthBtn', function() {
+        console.log('Pressing Truth or Dare');
+    });
+
+    // Other Btn
+    socket.on('otherBtn', function() {
+        console.log('Pressing Other');
     });
 });
