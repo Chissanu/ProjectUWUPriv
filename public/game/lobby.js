@@ -1,5 +1,6 @@
 // Make connection
-var socket = io.connect('http://localhost:4000');
+var host = window.location.host;
+var socket = io.connect('http://' + host);
 
 // Query DOM
 var kingBtn = document.getElementById('b1'),
