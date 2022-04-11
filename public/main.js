@@ -1,8 +1,7 @@
 // Make connection
 
-var host = window.location.host; // Get the host name here
-
-var socket = io.connect('http://' + host); //insert the http:// and :3000 here
+var host = window.location.host;
+var socket = io.connect('http://' + host);
 
 // Query DOM
 var message = document.getElementById('message'),
