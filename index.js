@@ -16,20 +16,20 @@ app.get('/game', function(req, res) {
 });
 
 app.get('/game/lobby', function(req, res) {
-    res.send("tagId is set to " + req.query.tagId);
     res.sendFile(path.join(__dirname, 'public/gameLobby/gameLobby.html'));
 });
 
+
 app.get('/py', runPy);
+
 
 function runPy(req, res) {
     var spawn = require('child_process').spawn;
 
-    var process = spawn('python', ['./test.py']);
+    var python = spawn('python', ['./test.py'], { detached: true, stdio: 'ignore' });
 
-    process.stdout.on('data', function(data) {
-        res.send(data.toString());
-    });
+    res.redirect('https://google.com');
+
 }
 
 // Socket setup & pass server
@@ -59,5 +59,13 @@ io.on('connection', function(socket) {
     // Other Btn
     socket.on('otherBtn', function() {
         console.log('Pressing Other');
+    });
+
+    socket.on('createBtn', function() {
+        console.log('Creating Lobby...');
+    });
+
+    socket.on('joinBtn', function() {
+        console.log('Joining Lobby...');
     });
 });

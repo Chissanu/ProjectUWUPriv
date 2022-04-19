@@ -10,10 +10,16 @@
 
 <body>
     <div id="rec33">
-        <p id="test">TEST</p>
-    </div>
+        <p id="gameName">KING GAME</p>
+        <form action="/action_page.php">
+            <input type="text" id="inputBox" name="name" placeholder="Name here!" style="font-size:48px; text-align:center;">
+            <input type="text" id="roomIDBox" name="roomID" placeholder="Room PIN" style="font-size:48px; text-align:center;">
+        </form>
 
+        <a href="/game/lobby"><button id="createBtn">Create Room</button></a>
+        <button id="joinBtn">Join Room</button>
+    </div>
 </body>
-<script src="./main.js"></script>
+<script src=" ./game.js"></script>
 
 </html>
