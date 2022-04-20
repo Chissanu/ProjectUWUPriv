@@ -9,19 +9,18 @@ var server = app.listen(4000, function() {
 });
 
 // Static files
-app.use(express.static('public'));
+app.use(express.static('public/pages'));
 
 app.get('/game', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/game/lobby.html'));
+    res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
 });
 
 app.get('/game/lobby', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/gameLobby/gameLobby.html'));
+    res.sendFile(path.join(__dirname, 'public/pages/gameLobby.html'));
 });
 
 
 app.get('/py', runPy);
-
 
 function runPy(req, res) {
     var spawn = require('child_process').spawn;
@@ -61,10 +60,12 @@ io.on('connection', function(socket) {
         console.log('Pressing Other');
     });
 
+    // Create Room Btn
     socket.on('createBtn', function() {
         console.log('Creating Lobby...');
     });
 
+    // Create Join Btn
     socket.on('joinBtn', function() {
         console.log('Joining Lobby...');
     });

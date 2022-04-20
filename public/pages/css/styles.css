@@ -185,7 +185,7 @@ body {
     border-radius: 25px;
 }
 
-#createBtn {
+#create {
     /* Rectangle 21 */
     font-family: 'Inter';
     font-style: normal;
@@ -206,7 +206,7 @@ body {
     border-radius: 50px;
 }
 
-#joinBtn {
+#join {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
