@@ -19,6 +19,9 @@ app.get('/game/lobby', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/pages/gameLobby.html'));
 });
 
+app.get('/game/lobby/create', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public/pages/gameRoom.html'));
+});
 
 app.get('/py', runPy);
 
