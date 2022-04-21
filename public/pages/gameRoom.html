@@ -14,12 +14,18 @@
 
     <div id="rec34">
         <div id="rec26">
-            <p id="roomText">69420</p>
+            <p id="roomText">Room ID:</p>
+            <p id="roomNum"></p>
         </div>
-        
     </div>
 
 </body>
-<script src="./main.js"></script>
 
 </html>
+
+<script>
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+    document.getElementById("roomNum").innerHTML = randomIntFromInterval(10000, 99999);
+</script>

@@ -226,6 +226,7 @@ body {
     border-radius: 50px;
 }
 
+
 /* GAME ROOM */
 
 #rec34 {
@@ -235,39 +236,49 @@ body {
     height: 969px;
     left: 136px;
     top: 55px;
-
     background: #FFF7CB;
     border-radius: 73px;
 }
 
 #rec26 {
     /* Rectangle 26 */
-
     position: absolute;
     width: 487px;
     height: 127px;
     left: 581px;
-    top: 33px;
-
+    top: 23px;
     background: #7F58AF;
     border-radius: 20px;
 }
 
 #roomText {
     position: absolute;
-    width: 166px;
-    height: 58px;
-    left: 160px;
-    top: 20px;
+    width: 139px;
+    height: 39px;
+    left: 174px;
+    top: -10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+}
 
+#roomNum {
+    position: absolute;
+    width: 166px;
+    height: 53px;
+    left: 160px;
+    top: 13px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
     font-size: 48px;
     line-height: 58px;
     /* identical to box height */
-
     text-align: center;
-
     color: #FFFFFF;
 }
