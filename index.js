@@ -12,6 +12,7 @@ var server = app.listen(4000, function() {
 // Static files
 app.use(express.static('public/pages'));
 
+
 app.get('/game', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
 });
