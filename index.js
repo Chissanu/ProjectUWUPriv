@@ -11,23 +11,23 @@ var server = app.listen(4000, function() {
 });
 
 // Static files
-app.use(express.static('public/pages'));
+app.use(express.static('public'));
 
 
 app.get('/game', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
+    res.sendFile(path.join(__dirname, 'public/lobby.html'));
 });
 
 app.get('/custom', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/customDrink.html'));
+    res.sendFile(path.join(__dirname, 'public/customDrink.html'));
 });
 
 app.get('/game/lobby', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/gameLobby.html'));
+    res.sendFile(path.join(__dirname, 'public/gameLobby.html'));
 });
 
 app.get('/game/lobby/create', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/gameRoom.html'));
+    res.sendFile(path.join(__dirname, 'public/gameRoom.html'));
 });
 
 app.get('/py', (req, res) => {
@@ -42,7 +42,7 @@ app.get('/py', (req, res) => {
 
     });
     // Send to file
-    res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
+    res.sendFile(path.join(__dirname, 'public/lobby.html'));
 })
 
 
