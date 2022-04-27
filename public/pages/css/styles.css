@@ -300,9 +300,9 @@ body {
 #pump1 {
     position: absolute;
     width: 276px;
-    height: 670px;
+    height: 721px;
     left: 170px;
-    top: 65px;
+    top: 80px;
     background: #ddff00;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 60px 15px 15px;
@@ -310,13 +310,13 @@ body {
     border: none;
 }
 
-#pump1Btn {
+#pump1Text {
     /* Rectangle 45 */
     position: absolute;
     width: 276px;
     height: 42px;
     left: 171px;
-    top: 709px;
+    top: 760px;
     background: #000000;
     border-radius: 0px 0px 15px 15px;
     padding: 0;
@@ -326,7 +326,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 40px;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -335,9 +335,9 @@ body {
 #pump2 {
     position: absolute;
     width: 276px;
-    height: 670px;
+    height: 721px;
     left: 496px;
-    top: 65px;
+    top: 80px;
     background: #2fff00;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 60px 15px 15px;
@@ -345,12 +345,12 @@ body {
     border: none;
 }
 
-#pump2Btn {
+#pump2Text {
     position: absolute;
     width: 276px;
     height: 42px;
     left: 496px;
-    top: 709px;
+    top: 760px;
     background: #000000;
     border-radius: 0px 0px 15px 15px;
     padding: 0;
@@ -359,7 +359,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 40px;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -368,9 +368,9 @@ body {
 #pump3 {
     position: absolute;
     width: 276px;
-    height: 670px;
+    height: 721px;
     left: 823px;
-    top: 65px;
+    top: 80px;
     background: #02d9ff;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 60px 15px 15px;
@@ -378,12 +378,12 @@ body {
     border: none;
 }
 
-#pump3Btn {
+#pump3Text {
     position: absolute;
     width: 276px;
     height: 42px;
     left: 823px;
-    top: 709px;
+    top: 760px;
     background: #000000;
     border-radius: 0px 0px 15px 15px;
     padding: 0;
@@ -392,7 +392,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 40px;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -401,9 +401,9 @@ body {
 #pump4 {
     position: absolute;
     width: 276px;
-    height: 670px;
+    height: 721px;
     left: 1149px;
-    top: 65px;
+    top: 80px;
     background: #f900fd;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 60px 15px 15px;
@@ -411,12 +411,12 @@ body {
     border: none;
 }
 
-#pump4Btn {
+#pump4Text {
     position: absolute;
     width: 276px;
     height: 42px;
     left: 1149px;
-    top: 709px;
+    top: 760px;
     background: #000000;
     border-radius: 0px 0px 15px 15px;
     padding: 0;
@@ -425,7 +425,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 40px;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -434,9 +434,9 @@ body {
 #pump5 {
     position: absolute;
     width: 276px;
-    height: 670px;
+    height: 721px;
     left: 1475px;
-    top: 65px;
+    top: 80px;
     background: #700052;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px 60px 15px 15px;
@@ -444,12 +444,12 @@ body {
     border: none;
 }
 
-#pump5Btn {
+#pump5Text {
     position: absolute;
     width: 276px;
     height: 42px;
     left: 1475px;
-    top: 709px;
+    top: 760px;
     background: #000000;
     border-radius: 0px 0px 15px 15px;
     padding: 0;
@@ -458,7 +458,7 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 40px;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -468,9 +468,51 @@ body {
     position: absolute;
     width: 300px;
     height: 125px;
-    left: 1209px;
+    left: 1208px;
     top: 878px;
     background: #4BD960;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0;
+    border: none;
+}
+
+#editBtn {
+    position: absolute;
+    width: 267px;
+    height: 125px;
+    left: 809px;
+    top: 878px;
+    background: #EB8464;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0;
+    border: none;
+}
+
+#backBtn {
+    position: absolute;
+    width: 299px;
+    height: 125px;
+    left: 410px;
+    top: 878px;
+    background: #64C5EB;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     font-family: 'Inter';
