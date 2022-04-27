@@ -2,6 +2,7 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
+const router = express.Router();
 
 // App setup
 var app = express();
