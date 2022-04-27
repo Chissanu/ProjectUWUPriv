@@ -17,6 +17,10 @@ app.get('/game', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
 });
 
+app.get('/custom', function(req, res) {
+    res.sendFile(path.join(__dirname, 'public/pages/customDrink.html'));
+});
+
 app.get('/game/lobby', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/pages/gameLobby.html'));
 });
@@ -80,5 +84,21 @@ io.on('connection', function(socket) {
         console.log('Joining Lobby...');
     });
 
+    // Send signal to Python
+    socket.on('pump1Btn', function() {
+        console.log('Pumping 1');
+    });
+    socket.on('pump2Btn', function() {
+        console.log('Pumping 2');
+    });
+    socket.on('pump3Btn', function() {
+        console.log('Pumping 3');
+    });
+    socket.on('pump4Btn', function() {
+        console.log('Pumping 4');
+    });
+    socket.on('pump5Btn', function() {
+        console.log('Pumping 5');
+    });
 
 });
