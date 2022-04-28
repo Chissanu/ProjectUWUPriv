@@ -2,7 +2,6 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
-const router = express.Router();
 
 // App setup
 var app = express();
@@ -34,16 +33,18 @@ app.get('/py', (req, res) => {
 
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['python\\pump.py', '1']);
+    const python = spawn('python', ['python\\pump.py', '2']);
     // collect data from script
+
     python.stdout.on('data', function(data) {
         console.log('Running Python Script');
         dataToSend = data.toString();
-
     });
+    console.log('Run');
     // Send to file
     res.sendFile(path.join(__dirname, 'public/lobby.html'));
 })
+
 
 
 // Socket setup & pass server
