@@ -10,39 +10,41 @@ var server = app.listen(4000, function() {
 });
 
 // Static files
-app.use(express.static('public/pages'));
+app.use(express.static('public'));
 
 
 app.get('/game', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
+    res.sendFile(path.join(__dirname, 'public/lobby.html'));
 });
 
 app.get('/custom', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/customDrink.html'));
+    res.sendFile(path.join(__dirname, 'public/customDrink.html'));
 });
 
 app.get('/game/lobby', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/gameLobby.html'));
+    res.sendFile(path.join(__dirname, 'public/gameLobby.html'));
 });
 
 app.get('/game/lobby/create', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/pages/gameRoom.html'));
+    res.sendFile(path.join(__dirname, 'public/gameRoom.html'));
 });
 
 app.get('/py', (req, res) => {
 
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['python\\pump.py', '1']);
+    const python = spawn('python', ['python\\pump.py', '2']);
     // collect data from script
+
     python.stdout.on('data', function(data) {
         console.log('Running Python Script');
         dataToSend = data.toString();
-
     });
+    console.log('Run');
     // Send to file
-    res.sendFile(path.join(__dirname, 'public/pages/lobby.html'));
+    res.sendFile(path.join(__dirname, 'public/lobby.html'));
 })
+
 
 
 // Socket setup & pass server
