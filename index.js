@@ -2,6 +2,7 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
+var http = require('http');
 
 // App setup
 var app = express();

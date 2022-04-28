@@ -42,7 +42,3 @@ nextBtn.addEventListener('click', function() {
 
     console.log(drinks)
 });
-
-socket.on('test', function() {
-    console.log('TESTTT');
-});
