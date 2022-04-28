@@ -10,31 +10,35 @@ var server = app.listen(4000, function() {
     console.log('listening for requests on port 4000,');
 });
 
-// Static files
-app.use(express.static('public'));
+app.set('view engine', 'pug')
+app.use(express.static('views'))
 
+
+app.get('/', function(req, res) {
+    res.render('index', { title: 'Hey', message: 'Hello there!!' });
+});
 
 app.get('/game', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/lobby.html'));
+    res.render('lobby');
 });
 
 app.get('/custom', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/customDrink.html'));
+    res.render('customDrink');
 });
 
 app.get('/game/lobby', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/gameLobby.html'));
+    res.render('gameLobby');
 });
 
 app.get('/game/lobby/create', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/gameRoom.html'));
+    res.render('gameRoom');
 });
 
 app.get('/py', (req, res) => {
 
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['python\\pump.py', '2']);
+    const python = spawn('python', ['python\\pump.py', '4']);
     // collect data from script
 
     python.stdout.on('data', function(data) {
@@ -43,7 +47,7 @@ app.get('/py', (req, res) => {
     });
     console.log('Run');
     // Send to file
-    res.sendFile(path.join(__dirname, 'public/lobby.html'));
+    res.render('lobby');
 })
 
 

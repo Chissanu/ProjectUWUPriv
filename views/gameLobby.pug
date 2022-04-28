@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Game:
+    script(src='../socket.io/socket.io.js')
+    link(href='/css/styles.css', rel='stylesheet')
+  body
+    #rec33
+      p#gameName KING GAME
+      form(action='/action_page.php')
+        input#inputBox(type='text', name='name', placeholder='Name here!', style='font-size:48px; text-align:center;')
+        input#roomIDBox(type='text', name='roomID', placeholder='Room PIN', style='font-size:48px; text-align:center;')
+      a(href='/game/lobby/create')
+        button#create Create Room
+      button#join Join Room
+    script.
+      // Make connection
+      var host = window.location.host;
+      var socket = io.connect('http://' + host);
+      // Query DOM
+      var createBtn = document.getElementById('create'),
+      joinBtn = document.getElementById('join'),
+      name = document.getElementById('name'),
+      roomID = document.getElementById('roomID');
+      // Emit events
+      createBtn.addEventListener('click', function() {
+      socket.emit('createBtn');
+      });
+      joinBtn.addEventListener('click', function() {
+      socket.emit('joinBtn');
+      });
