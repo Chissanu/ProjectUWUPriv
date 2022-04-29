@@ -2,8 +2,7 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
-
-let drinks = [1, 2, 3, 45, 5]
+var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
 
 // App setup
 var app = express();
@@ -36,11 +35,11 @@ app.get('/game/lobby/create', function(req, res) {
 });
 
 app.get('/test', function(req, res) {
-    res.render('makeDrink', { name: drinks[0] });
+    console.log(drinks);
+    res.render('makeDrink', { name: drinks });
 });
 
 app.get('/py', (req, res) => {
-
     var dataToSend;
     // spawn new child process to call the python script
     const python = spawn('python', ['python\\pump.py', '4']);
@@ -112,8 +111,8 @@ io.on('connection', function(socket) {
     });
 
     socket.on('drinks', function(data) {
-        console.log(data);
-        drinks = data
+        console.log(data.drinks);
+        drinks = data.drinks;
     });
 
 });

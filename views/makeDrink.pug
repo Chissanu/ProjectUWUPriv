@@ -8,5 +8,29 @@ html
     link(href='css/styles.css', rel='stylesheet')
   body
     p#box1
-    h1= name
-    script(src='./js/main.js')
+    p#pump1Drink
+    p#mlPump1 1
+    p#pump1Name=name[0]
+    button#plusSignPump1  + 
+    button#minusSignPump1  - 
+    p#pump2Drink
+    p#mlPump2 1
+    p#pump2Name=name[1]
+    button#plusSignPump2  + 
+    button#minusSignPump2  - 
+    p#pump3Drink
+    p#mlPump3 1
+    p#pump3Name=name[2]
+    button#plusSignPump3  + 
+    button#minusSignPump3  - 
+    p#pump4Drink  
+    p#mlPump4 1
+    p#pump4Name=name[3]
+    button#plusSignPump4  + 
+    button#minusSignPump4  - 
+    p#pump5Drink
+    p#mlPump5 1
+    p#pump5Name=name[4]
+    button#plusSignPump5  + 
+    button#minusSignPump5  - 
+    script(src='./js/drinks.js')
