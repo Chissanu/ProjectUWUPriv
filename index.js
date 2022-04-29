@@ -2,7 +2,8 @@ var express = require('express');
 var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
-var http = require('http');
+
+let drinks = [1, 2, 3, 45, 5]
 
 // App setup
 var app = express();
@@ -34,6 +35,10 @@ app.get('/game/lobby/create', function(req, res) {
     res.render('gameRoom');
 });
 
+app.get('/test', function(req, res) {
+    res.render('makeDrink', { name: drinks[0] });
+});
+
 app.get('/py', (req, res) => {
 
     var dataToSend;
@@ -49,8 +54,6 @@ app.get('/py', (req, res) => {
     // Send to file
     res.render('lobby');
 })
-
-
 
 // Socket setup & pass server
 var io = socket(server);
@@ -106,6 +109,11 @@ io.on('connection', function(socket) {
     });
     socket.on('pump5Btn', function() {
         console.log('Pumping 5');
+    });
+
+    socket.on('drinks', function(data) {
+        console.log(data);
+        drinks = data
     });
 
 });

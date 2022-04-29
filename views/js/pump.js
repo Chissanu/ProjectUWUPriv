@@ -32,13 +32,14 @@ pump5.addEventListener('click', function() {
     socket.emit('pump5Btn');
 });
 nextBtn.addEventListener('click', function() {
-    const drinks = [
+    let drinks = [
         document.querySelector('#pump1Text').innerHTML,
         document.querySelector('#pump2Text').innerHTML,
         document.querySelector('#pump3Text').innerHTML,
         document.querySelector('#pump4Text').innerHTML,
         document.querySelector('#pump5Text').innerHTML
     ];
+    socket.emit('drinks', { drinks });
 
-    console.log(drinks)
+
 });
