@@ -6,11 +6,12 @@ html
     script(src='../socket.io/socket.io.js')
     link(rel='stylesheet', href='/css/styles.css')
     script.
-      var pump1Text = 1,
-          pump2Text = 1,
-          pump3Text = 1,
-          pump4Text = 1,
-          pump5Text = 1;
+      let totalLq = 0;
+      var pump1Text = 0,
+          pump2Text = 0,
+          pump3Text = 0,
+          pump4Text = 0,
+          pump5Text = 0;
   body
     p#box1
     p#pump1Drink
@@ -38,6 +39,12 @@ html
     p#pump5Name=name[4]
     button#plusSignPump5(onclick='addMl("mlPump5",5)')  + 
     button#minusSignPump5(onclick='minusMl("mlPump5",5)')  - 
+    p#box2
+    p#totalMl Total Milliliters
+    p#totalMlText 0
+    button#acceptBtn Accept
+    button#homeBtn Home
+
     script.
       function addMl(pumpId,pumpIdVar) {
         var num
@@ -61,14 +68,13 @@ html
           pump5Text += 1;
           num = pump5Text;
         }
-        console.log(pumpId);
         document.getElementById(pumpId).innerHTML = num;
+        totalLq = pump1Text + pump2Text + pump3Text + pump4Text + pump5Text;
+        totalMlText.innerHTML = totalLq;
       }
 
       function minusMl(pumpId,pumpIdVar) {
         var num
-        console.log(pumpId);
-        console.log(pumpIdVar);
         if (pumpIdVar == 1) {
           pump1Text -= 1;
           num = pump1Text;
@@ -89,6 +95,8 @@ html
           pump5Text -= 1;
           num = pump5Text;
         }
+        totalLq = pump1Text + pump2Text + pump3Text + pump4Text + pump5Text;
         document.getElementById(pumpId).innerHTML = num;
+        totalMlText.innerHTML = totalLq;
       }
     script(src='/js/drinks.js')

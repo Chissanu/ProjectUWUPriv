@@ -541,6 +541,91 @@ body {
     border-radius: 73px;
 }
 
+#box2 {
+    position: absolute;
+    width: 786px;
+    height: 500px;
+    left: 1042px;
+    top: 217px;
+    background: #DDD4A2;
+    border-radius: 73px;
+}
+
+#totalMl {
+    /* Total Milliliters */
+    position: absolute;
+    width: 460px;
+    height: 77px;
+    left: 1204px;
+    top: 216px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#totalMlText {
+    /* Total Milliliters */
+    position: absolute;
+    width: 460px;
+    height: 77px;
+    left: 1204px;
+    top: 345px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    text-align: center;
+    color: #000000;
+}
+
+#acceptBtn {
+    position: absolute;
+    width: 354px;
+    height: 125px;
+    left: 1258px;
+    top: 540px;
+    background: #4BD960;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0;
+    border: none;
+}
+
+#homeBtn {
+    /* Home butt */
+    position: absolute;
+    width: 300px;
+    height: 125px;
+    left: 1528px;
+    top: 862px;
+    background: #6482EB;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0;
+    border: none;
+}
+
 #pump1Drink {
     /* Rectangle 39 */
     position: absolute;
