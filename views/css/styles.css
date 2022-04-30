@@ -680,7 +680,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 58px;
     /* identical to box height */
     color: #000000;
@@ -696,7 +696,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 58px;
     /* identical to box height */
     color: #000000;
@@ -712,7 +712,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 58px;
     /* identical to box height */
     color: #000000;
@@ -728,7 +728,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 58px;
     /* identical to box height */
     color: #000000;
@@ -744,7 +744,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 58px;
     /* identical to box height */
     color: #000000;
@@ -768,7 +768,7 @@ body {
     width: 40px;
     height: 40px;
     left: 600px;
-    top: 350px;
+    top: 190px;
     background: #C4C4C4;
     padding: 0;
     border: none;
@@ -792,7 +792,7 @@ body {
     width: 40px;
     height: 40px;
     left: 600px;
-    top: 190px;
+    top: 350px;
     background: #C4C4C4;
     padding: 0;
     border: none;
