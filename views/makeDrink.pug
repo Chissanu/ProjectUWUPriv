@@ -2,35 +2,66 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Main
     script(src='../socket.io/socket.io.js')
-    link(href='css/styles.css', rel='stylesheet')
+    link(rel='stylesheet', href='/css/styles.css')
+    script.
+      var pump1Text = 1,
+          pump2Text = 1,
+          pump3Text = 1,
+          pump4Text = 1,
+          pump5Text = 1;
   body
     p#box1
     p#pump1Drink
-    p#mlPump1 1
+    p#mlPump1=1
     p#pump1Name=name[0]
-    button#plusSignPump1  + 
+    button#plusSignPump1(onclick='addMl("mlPump1",1)')  + 
     button#minusSignPump1  - 
     p#pump2Drink
-    p#mlPump2 1
+    p#mlPump2=1
     p#pump2Name=name[1]
-    button#plusSignPump2  + 
+    button#plusSignPump2(onclick='addMl("mlPump2",2)')  + 
     button#minusSignPump2  - 
     p#pump3Drink
-    p#mlPump3 1
+    p#mlPump3=1
     p#pump3Name=name[2]
-    button#plusSignPump3  + 
+    button#plusSignPump3(onclick='addMl("mlPump3",3)')  + 
     button#minusSignPump3  - 
     p#pump4Drink  
-    p#mlPump4 1
+    p#mlPump4=1
     p#pump4Name=name[3]
-    button#plusSignPump4  + 
+    button#plusSignPump4(onclick='addMl("mlPump4",4)')  + 
     button#minusSignPump4  - 
     p#pump5Drink
-    p#mlPump5 1
+    p#mlPump5=1
     p#pump5Name=name[4]
-    button#plusSignPump5  + 
+    button#plusSignPump5(onclick='addMl("mlPump5",5)')  + 
     button#minusSignPump5  - 
-    script(src='./js/drinks.js')
+    script.
+      function addMl(pumpId,pumpIdVar) {
+        var num
+        if (pumpIdVar == 1) {
+          pump1Text += 1;
+          num = pump1Text;
+        }
+        else if (pumpIdVar == 2) {
+          pump2Text += 1;
+          num = pump2Text;
+        } 
+        else if (pumpIdVar == 3) {
+          pump3Text += 1;
+          num = pump3Text;
+        }
+        else if (pumpIdVar == 4) {
+          pump4Text += 1;
+          num = pump4Text;
+        }
+        else if (pumpIdVar == 5) {
+          pump5Text += 1;
+          num = pump5Text;
+        }
+        document.getElementById(pumpId).innerHTML = num;
+
+      }
+    script(src='/js/drinks.js')

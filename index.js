@@ -34,8 +34,7 @@ app.get('/game/lobby/create', function(req, res) {
     res.render('gameRoom');
 });
 
-app.get('/test', function(req, res) {
-    console.log(drinks);
+app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
 });
 
