@@ -14,7 +14,6 @@ function saveDrink() {
     document.querySelector('#pump1Text').innerHTML = 'Hide';
 }
 
-
 // Emit events
 pump1.addEventListener('click', function() {
     socket.emit('pump1Btn');
@@ -40,6 +39,9 @@ nextBtn.addEventListener('click', function() {
         document.querySelector('#pump5Text').innerHTML
     ];
     socket.emit('drinks', { drinks });
+});
 
-
+backBtn.addEventListener('click', function() {
+    socket.emit('backBtn');
+    location.replace('http://' + host);
 });

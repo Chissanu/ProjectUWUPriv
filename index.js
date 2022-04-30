@@ -109,9 +109,20 @@ io.on('connection', function(socket) {
         console.log('Pumping 5');
     });
 
+    // Received drink names
     socket.on('drinks', function(data) {
-        console.log(data.drinks);
         drinks = data.drinks;
+    });
+
+    // Receive signal from custom drinks
+    socket.on('acceptBtn', function(data) {
+        console.log('Accepting');
+    });
+    socket.on('homeBtn', function(data) {
+        console.log('Going home');
+    });
+    socket.on('backBtn2', function(data) {
+        console.log('backing');
     });
 
 });

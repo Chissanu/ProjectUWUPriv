@@ -15,27 +15,27 @@ html
   body
     p#box1
     p#pump1Drink
-    p#mlPump1=1
+    p#mlPump1=0
     p#pump1Name=name[0]
     button#plusSignPump1(onclick='addMl("mlPump1",1)')  + 
     button#minusSignPump1(onclick='minusMl("mlPump1",1)')  - 
     p#pump2Drink
-    p#mlPump2=1
+    p#mlPump2=0
     p#pump2Name=name[1]
     button#plusSignPump2(onclick='addMl("mlPump2",2)')  + 
     button#minusSignPump2(onclick='minusMl("mlPump2",2)')  - 
     p#pump3Drink
-    p#mlPump3=1
+    p#mlPump3=0
     p#pump3Name=name[2]
     button#plusSignPump3(onclick='addMl("mlPump3",3)')  + 
     button#minusSignPump3(onclick='minusMl("mlPump3",3)')  - 
     p#pump4Drink  
-    p#mlPump4=1
+    p#mlPump4=0
     p#pump4Name=name[3]
     button#plusSignPump4(onclick='addMl("mlPump4",4)')  + 
     button#minusSignPump4(onclick='minusMl("mlPump4",4)')  -  
     p#pump5Drink
-    p#mlPump5=1
+    p#mlPump5=0
     p#pump5Name=name[4]
     button#plusSignPump5(onclick='addMl("mlPump5",5)')  + 
     button#minusSignPump5(onclick='minusMl("mlPump5",5)')  - 
@@ -44,6 +44,7 @@ html
     p#totalMlText 0
     button#acceptBtn Accept
     button#homeBtn Home
+    button#backBtn2 Back
 
     script.
       function addMl(pumpId,pumpIdVar) {
@@ -76,23 +77,33 @@ html
       function minusMl(pumpId,pumpIdVar) {
         var num
         if (pumpIdVar == 1) {
-          pump1Text -= 1;
+          if (pump1Text > 0) {
+            pump1Text -= 1;
+          }
           num = pump1Text;
         }
         else if (pumpIdVar == 2) {
-          pump2Text -= 1;
+          if (pump2Text > 0) {
+            pump2Text -= 1;
+          }
           num = pump2Text;
         } 
         else if (pumpIdVar == 3) {
-          pump3Text -= 1;
+          if (pump3Text > 0) {
+            pump3Text -= 1;
+          }
           num = pump3Text;
         }
         else if (pumpIdVar == 4) {
-          pump4Text -= 1;
+          if (pump4Text > 0) {
+            pump4Text -= 1;
+          }
           num = pump4Text;
         }
         else if (pumpIdVar == 5) {
-          pump5Text -= 1;
+          if (pump5Text > 0) {
+            pump5Text -= 1;
+          }
           num = pump5Text;
         }
         totalLq = pump1Text + pump2Text + pump3Text + pump4Text + pump5Text;
