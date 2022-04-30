@@ -8,11 +8,17 @@ var acceptBtn = document.getElementById('acceptBtn'),
     backBtn = document.getElementById('backBtn2');
 
 acceptBtn.addEventListener('click', function() {
-    socket.emit('acceptBtn');
+    let amount = [
+        document.querySelector('#mlPump1').innerHTML,
+        document.querySelector('#mlPump2').innerHTML,
+        document.querySelector('#mlPump3').innerHTML,
+        document.querySelector('#mlPump4').innerHTML,
+        document.querySelector('#mlPump5').innerHTML
+    ];
+    socket.emit('acceptBtn', { amount });
 });
 homeBtn.addEventListener('click', function() {
     socket.emit('homeBtn');
-    location.replace('http://' + host);
 });
 backBtn.addEventListener('click', function() {
     socket.emit('backBtn2');

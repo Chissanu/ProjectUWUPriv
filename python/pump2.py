@@ -3,11 +3,6 @@ import time, sys
 
 inputFromWebApp = 0 #Input from the webapp
 pumpPins = [14,15,16,23,24]
-# pump1 = 14
-# pump2 = 15
-# pump3 = 16
-# pump4 = 23
-# pump5 = 24
 inputPin = 25
 glassDetected = False
 
@@ -32,7 +27,7 @@ GPIO.setup(inputPin, GPIO.IN)
 #     elif inputFromWebApp == 5:
 #         return pump5
 
-testArray = [10,5,4,3,5]
+webInput = sys.argv[1]
 
 # Take about 11 Seconds to fill water to 300ml
 # The pump pumps water 27.27 ml of water per seconds
@@ -49,7 +44,7 @@ def pumpFromArr(arr, pumpPins):
             print("Pump", index , "on pin:",pumpPins[index - 1])
             index += 1
 
-pumpFromArr(testArray,pumpPins) 
+pumpFromArr(webInput,pumpPins) 
 # while True:
 #     if GPIO.input(inputPin) == 0:
 #         glassDetected = True

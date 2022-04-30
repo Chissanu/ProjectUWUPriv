@@ -3,6 +3,7 @@ var socket = require('socket.io');
 const path = require('path');
 const { spawn } = require('child_process');
 var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
+var amount = [0, 1, 2, 3, 4];
 
 // App setup
 var app = express();
@@ -38,10 +39,10 @@ app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
 });
 
-app.get('/py', (req, res) => {
+app.get('/pyscript', (req, res) => {
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['python\\pump.py', '4']);
+    const python = spawn('python', ['python\\pump.py', amount]);
     // collect data from script
 
     python.stdout.on('data', function(data) {
@@ -50,7 +51,7 @@ app.get('/py', (req, res) => {
     });
     console.log('Run');
     // Send to file
-    res.render('lobby');
+    res.redirect('/');
 })
 
 // Socket setup & pass server
@@ -116,7 +117,9 @@ io.on('connection', function(socket) {
 
     // Receive signal from custom drinks
     socket.on('acceptBtn', function(data) {
-        console.log('Accepting');
+        amount = data.amount;
+        console.log('Received Data from drinks')
+
     });
     socket.on('homeBtn', function(data) {
         console.log('Going home');
