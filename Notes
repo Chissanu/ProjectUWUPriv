@@ -1,9 +1,0 @@
-For button and removing black border in CSS
-padding: 0;
-border: none;
-
-https://www.youtube.com/watch?v=DvlyzDZDEq4
-
-https://github.com/iamshaunjp/websockets-playlist
-
-<script src="/socket.io/socket.io.js"></script>

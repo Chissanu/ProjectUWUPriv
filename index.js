@@ -39,10 +39,29 @@ app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
 });
 
+// app.get('/py', (req, res) => {
+//     var dataToSend;
+//     // spawn new child process to call the python script
+//     const python = spawn('python', ['pump.py']);
+//     // collect data from script
+
+//     python.stdout.on('data', function(data) {
+//         console.log('Running Python Script');
+//         dataToSend = data.toString();
+//     });
+
+//     python.on('close', (code) => {
+//         console.log('done');
+//         res.send(dataToSend)
+//     })
+
+// })
+
+
 app.get('/pyscript', (req, res) => {
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['python\\pump.py', amount]);
+    const python = spawn('python', ['python/pump.py', amount]);
     // collect data from script
 
     python.stdout.on('data', function(data) {

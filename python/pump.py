@@ -14,7 +14,6 @@ pump5 = 24
 
 webInput = sys.argv[1]
 
-
 # if (webInput == 1):
 #     pumpPin = pump1
 # elif (webInput == 2):
