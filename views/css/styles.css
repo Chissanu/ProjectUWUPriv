@@ -198,7 +198,7 @@ body {
     width: 450px;
     height: 125px;
     left: 107px;
-    top: 612px;
+    top: 500px;
     background: #FE7226;
     padding: 0;
     border: none;
@@ -218,7 +218,7 @@ body {
     width: 450px;
     height: 125px;
     left: 684px;
-    top: 612px;
+    top: 500px;
     background: #FEB326;
     padding: 0;
     border: none;
@@ -973,6 +973,56 @@ body {
     left: 600px;
     top: 885px;
     background: #C4C4C4;
+    padding: 0;
+    border: none;
+}
+
+
+/* Create Room */
+
+#startGame {
+    position: absolute;
+    width: 450px;
+    height: 125px;
+    left: 586px;
+    top: 32px;
+    background: #FEB326;
+    border-radius: 16px;
+}
+
+#gameName {
+    /* King Game */
+    position: absolute;
+    width: 282px;
+    height: 55px;
+    left: 129px;
+    top: -10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#backBtn3 {
+    position: absolute;
+    width: 299px;
+    height: 125px;
+    left: 1242px;
+    top: 753px;
+    background: #64C5EB;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
     padding: 0;
     border: none;
 }

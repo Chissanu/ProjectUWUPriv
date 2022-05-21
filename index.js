@@ -4,6 +4,8 @@ const path = require('path');
 const { spawn } = require('child_process');
 var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
 var amount = [0, 1, 2, 3, 4];
+var intArr = [];
+
 
 // App setup
 var app = express();
@@ -39,8 +41,23 @@ app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
 });
 
+function callPython(pump, time) {
+    const python = spawn('python', ['python/pump.py', pump, time]);
+}
 
 app.get('/pyscript', (req, res) => {
+    var dataToSend;
+    intArr = amount.map(Number)
+
+    for (var i = 0; i < intArr.length; i++) {
+        callPython(i, intArr[i])
+    }
+    console.log(intArr)
+    res.redirect('/custom/drinks');
+
+})
+
+app.get('/py', (req, res) => {
     var dataToSend;
     // spawn new child process to call the python script
     const python = spawn('python', ['python/pump.py', amount]);
@@ -54,6 +71,7 @@ app.get('/pyscript', (req, res) => {
     // Send to file
     res.redirect('/');
 })
+
 
 // Socket setup & pass server
 var io = socket(server);
@@ -119,6 +137,9 @@ io.on('connection', function(socket) {
     // Receive signal from custom drinks
     socket.on('acceptBtn', function(data) {
         amount = data.amount;
+        for (var i = 0; i < amount.length; i++) {
+            intArr.push(parseInt(amount[i]));
+        }
         console.log('Received Data from drinks')
 
     });
@@ -126,6 +147,10 @@ io.on('connection', function(socket) {
         console.log('Going home');
     });
     socket.on('backBtn2', function(data) {
+        console.log('backing');
+    });
+
+    socket.on('backBtn3', function(data) {
         console.log('backing');
     });
 
