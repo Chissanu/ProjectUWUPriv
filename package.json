@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Chissanu/ProjectUWUPriv#readme",
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "express": "^4.18.0",
     "pug": "^3.0.2",
     "python-shell": "^3.0.1",

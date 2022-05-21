@@ -3,18 +3,21 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Game
-    link(rel='stylesheet', href='css\bootstrap.min.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
   body
     .box-in
       a(href='/game/lobby')
-        button.box-in-1 King Game
+        button.box-in-1#b1 King Game
       a(href='')
-      button.box-in-2 Truth or drink
+      button.box-in-2#b2 Truth or drink
       a(href='')
-      button.box-in-3 Other
-    a(href='Home.html')
+      button.box-in-3#b3 Other
+    a(href='/')
       button.home
-        img(src='img\\VectorHome.png', width='80', height='68')
+        img(src='img/VectorHome.png', width='80', height='68')
     style.
       body{
       background: #F8ECAE;

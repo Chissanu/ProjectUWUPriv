@@ -3,18 +3,21 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Game
-    link(rel='stylesheet', href='css/bootstrap.min.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
   body
     .box-1
-    img.img(src='img/Fairytale_white.png')
+    img.img(src='/img/Fairytale_white.png')
     .main-topic King Game
-    input.inp(placeholder='Put your name here!')
+    input.inp#name(placeholder='Put your name here!')
     a(href='/game/lobby/create')
       div
-        button.button-1 Create room
-    a(href='King_View.html')
+        button.button-1#create Create room
+    a(href='/loading')
       div
-        button.button-2 Join game
+        button.button-2#join Join game
     style.
       body{
       position: relative;
@@ -27,7 +30,7 @@ html
       width: 96px;
       height: 96px;
       left: 500px;
-      top: 175px;
+      top: 180px;
       }
       .main-topic{
       position: absolute;
@@ -200,20 +203,5 @@ html
       color: #FFFFFF;
       }
       }
-    script(src='js/bootstrap.min.js')
-script.
-  // Make connection
-  var host = window.location.host;
-  var socket = io.connect('http://' + host);
-  // Query DOM
-  var createBtn = document.getElementById('create'),
-  joinBtn = document.getElementById('join'),
-  name = document.getElementById('name'),
-  roomID = document.getElementById('roomID');
-  // Emit events
-  createBtn.addEventListener('click', function() {
-  socket.emit('createBtn');
-  });
-  joinBtn.addEventListener('click', function() {
-  socket.emit('joinBtn');
-  });
+    script(src='/js/bootstrap.min.js')
+  script(src='/js/lobby.js')

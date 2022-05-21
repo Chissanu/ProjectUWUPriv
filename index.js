@@ -4,7 +4,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
 var amount = [0, 1, 2, 3, 4];
-let users = [];
+var users = 0;
 
 // App setup
 var app = express();
@@ -32,11 +32,15 @@ app.get('/game/lobby', function(req, res) {
 });
 
 app.get('/game/lobby/create', function(req, res) {
-    res.render('gameRoom');
+    res.render('hostView');
 });
 
 app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
+});
+
+app.get('/loading', function(req, res) {
+    res.render('waiting');
 });
 
 function callPython(pump, time) {
@@ -90,21 +94,6 @@ var io = socket(server);
 io.on('connection', function(socket) {
     console.log('made socket connection', socket.id);
 
-    socket.on('join server', (username) => {
-        const user = {
-            username,
-            id: socket.id,
-        };
-        user.push(user);
-        io.emit('new user', users);
-        console.log(username)
-    })
-
-    socket.on('join room', (roomName, cb) => {
-        socket.join(roomName);
-        cb(message[roomName]);
-    });
-
     socket.on('gameBtn', function() {
         console.log('Running Game');
     })
@@ -129,13 +118,25 @@ io.on('connection', function(socket) {
     });
 
     // Create Room Btn
-    socket.on('createBtn', function() {
-        console.log('Creating Lobby...');
+    socket.on('createBtn', function(data) {
+        console.log("Room created");
+
     });
 
     // Create Join Btn
-    socket.on('joinBtn', function() {
+    socket.on('joinBtn', function(data) {
         console.log('Joining Lobby...');
+        console.log(data.name)
+        io.sockets.emit('player-join', data)
+        users++;
+    });
+
+    // Receive signal from host game
+    socket.on('start', function(data) {
+        console.log('starting');
+        console.log(users)
+        io.sockets.emit('start', users)
+
     });
 
     // Send signal to Python
@@ -172,5 +173,4 @@ io.on('connection', function(socket) {
     socket.on('backBtn2', function(data) {
         console.log('backing');
     });
-
 });

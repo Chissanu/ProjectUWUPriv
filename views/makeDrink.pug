@@ -2,7 +2,10 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Game
-  link(rel='stylesheet' href='css\bootstrap.min.css')
+  script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+  link(rel='stylesheet' href='css/bootstrap.min.css')
 .box-left
   button.pump-1 Pump:1
   button.minus-1
