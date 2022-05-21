@@ -3,16 +3,19 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Game
-    link(rel='stylesheet', href='css\bootstrap.min.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+    link(rel='stylesheet' href='css/bootstrap.min.css')
   body
     .box-in
       h1.rank You are number...
-      h1.no-1 1
-    a(href='index.html')
+      h1.no-1#id 1
+    a(href='/')
       button.exit Exit
     style.
       body{
-      background: #DDD4A2;
+      background: #F8ECAE;
       position: relative;
       width: 1980px;
       height: 1080px;
@@ -25,7 +28,7 @@ html
       top: 78px;
       align-items: center;
       text-align: center;
-      background: #E5E5E5;
+      background: #FFF7CB;
       border-radius: 73px;
       }
       .rank{
@@ -33,7 +36,7 @@ html
       width: 1000px;
       height: 39px;
       left: 110px;
-      top: 200px;
+      top: 50px;
       font-family: 'Inter';
       font-style: normal;
       font-weight: 700;
@@ -48,7 +51,7 @@ html
       width: 900px;
       height: 155px;
       left: 182px;
-      top: 450px;
+      top: 400px;
       font-family: 'Inter';
       font-style: normal;
       font-weight: 800;
@@ -62,7 +65,7 @@ html
       .exit{
       position: absolute;
       top:920px;
-      left: 1650px;
+      left: 800px;
       width: 350px;
       height: 140px;
       background: rgba(120, 120, 120, 1);
@@ -82,7 +85,7 @@ html
       }
       @media  screen and (max-width:800px) {
       body{
-      background: #DDD4A2;
+      background: #F8ECAE;
       position: relative;
       width: 700px;
       height: 200px;
@@ -91,11 +94,11 @@ html
       position: absolute;
       width: 600px;
       height: 700px;
-      left: 80px;
+      left: 50px;
       top: 30%;
       align-items: center;
       text-align: center;
-      background: #E5E5E5;
+      background: FFF7CB;
       border-radius: 73px;
       }
       .rank{
@@ -118,7 +121,7 @@ html
       width: 100px;
       height: 155px;
       left: 220px;
-      top: 350px;
+      top: 300px;
       font-family: 'Inter';
       font-style: normal;
       font-weight: 800;
@@ -132,7 +135,7 @@ html
       .exit{
       position: absolute;
       top:790px;
-      left: 420px;
+      left: 260px;
       width: 250px;
       height:100px;
       background: rgba(120, 120, 120, 1);
@@ -151,4 +154,4 @@ html
       border: 0px;
       }
       }
-    script(src='js\bootstrap.min.js')
+  script(src='js/game.js')

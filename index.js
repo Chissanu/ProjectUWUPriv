@@ -43,6 +43,11 @@ app.get('/loading', function(req, res) {
     res.render('waiting');
 });
 
+app.get('/king', function(req, res) {
+    res.render('numberView');
+});
+
+
 function callPython(pump, time) {
     console.log(pump)
     console.log(time)
@@ -120,7 +125,7 @@ io.on('connection', function(socket) {
     // Create Room Btn
     socket.on('createBtn', function(data) {
         console.log("Room created");
-
+        users = 0;
     });
 
     // Create Join Btn
@@ -134,7 +139,6 @@ io.on('connection', function(socket) {
     // Receive signal from host game
     socket.on('start', function(data) {
         console.log('starting');
-        console.log(users)
         io.sockets.emit('start', users)
 
     });
