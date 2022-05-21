@@ -1,16 +1,133 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Main
-    //- script(src='../socket.io/socket.io.js')
-    //- link(href='/css/styles.css', rel='stylesheet', type='text/css')
-    link(rel='stylesheet', href='/css/styles.css')
-  body
-    #bgBox
-      a(href='/game')
-        button#gameBtn Games
-      a(href='/custom')
-        button#customBtn Custom
-    //- script(src='./js/main.js')
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Game
+  link(rel='stylesheet' href='css/bootstrap.min.css')
+.box
+  a(href='/game')
+    button.game Game
+  a(href='/custom')
+    button.custom
+      img(src='img/Cocktail.png')
+      | Custom
+style.
+  body{
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background: #F8ECAE;
+  }
+  .box{
+  position: absolute;
+  width: 1600px;
+  height: 300px;
+  left: 160px;
+  top: 390px;
+  background: #DDD4A2;
+  border-radius: 73px;
+  }
+  .game{
+  position: absolute;
+  width: 650px;
+  height: 200px;
+  left: 50px;
+  top: 50px;
+  background: #7F58AF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: center;
+  color: #FFFFFF;
+  border: 0px;
+  }
+  .custom{
+  position: absolute;
+  width: 650px;
+  height: 200px;
+  right: 50px;
+  top: 50px;
+  background: #E84D8A;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: center;
+  color: #FFFFFF;
+  border: 0px;
+  }
+  img{
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 81px;
+  top: 52px;
+  }
+  @media  screen and (max-width:800px) {
+  body{
+  position: relative;
+  width: 700px;
+  height: 200px;
+  background: #F8ECAE;
+  }
+  .box{
+  position: absolute;
+  width: 600px;
+  height: 700px;
+  left: 80px;
+  top: 50%;
+  background: #DDD4A2;
+  border-radius: 73px;
+  }
+  .game{
+  position: absolute;
+  width: 450px;
+  height: 150px;
+  left: 80px;
+  top: 390px;
+  background: #7F58AF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: center;
+  color: #FFFFFF;
+  border: 0px;
+  }
+  .custom{
+  position: absolute;
+  width: 450px;
+  height: 150px;
+  left: 80px;
+  top: 150px;
+  background: #E84D8A;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 116px;
+  text-align: end;
+  padding-right:30px ;
+  color: #FFFFFF;
+  border: 0px;
+  }
+  img{
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 20px;
+  top: 23px;
+  }
+  }
+script(src='js\bootstrap.min.js')
