@@ -9,10 +9,14 @@ html
     link(rel='stylesheet' href='css/bootstrap.min.css')
   body
     .box-in
-      h1.rank You are number...
-      h1.no-1#id 1
+      img.fairyTable#img(src='img/Fairytale.png')
+      h1.rank#title You are number..
+      h1.no-1#id
     a(href='/')
-      button.exit Exit
+      button.exit#backBtn Exit
+    button.custom#customBtn
+      img.glass(src='img/Cocktail.png')
+      | Custom
     style.
       body{
       background: #F8ECAE;
@@ -30,6 +34,42 @@ html
       text-align: center;
       background: #FFF7CB;
       border-radius: 73px;
+      }
+      .fairyTable{
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      left: 42%;
+      top: 18%;
+      background: url(.png);
+      filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.25));
+      display:none;
+      }
+      .king{
+      position: absolute;
+      top:550px;
+      left: 270px;
+      font-size: 100px;
+      }
+      .custom{
+      position: absolute;
+      top:920px;
+      left: 1200px;
+      width: 350px;
+      height: 140px;
+      background: rgba(232, 77, 138, 1);
+      box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size:70px;
+      line-height: 29px;
+      display: none;
+      align-items: center;
+      text-align: center;
+      color: #FFFFFF;
+      border: 0px;
       }
       .rank{
       position: absolute;

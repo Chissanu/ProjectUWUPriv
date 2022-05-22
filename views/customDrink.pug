@@ -3,28 +3,31 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Game
-    link(rel='stylesheet', href='css\bootstrap.min.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+    link(rel='stylesheet' href='css/bootstrap.min.css')
   body
     .box-in
       .box-1
         .box-label-1
-        span Pump: 12
+        span#pump1Text(contenteditable='true') Pump: 1
       .box-2
         .box-label-2
-        span Pump: 2
+        span#pump2Text(contenteditable='true') Pump: 2
       .box-3
         .box-label-3
-        span Pump: 3
+        span#pump3Text(contenteditable='true') Pump: 3
       .box-4
         .box-label-4
-        span Pump: 4
+        span#pump4Text(contenteditable='true') Pump: 4
       .box-5
         .box-label-5
-        span Pump: 5
-      a(href='King_View.html')
+        span#pump5Text(contenteditable='true') Pump: 5
+      a(href='/')
         button.back Back
-      a(href='volumn.html')
-        button.next Next
+      a(href='/custom/drinks')
+        button.next#nextBtn Next
     style.
       body{
       margin: 0;
@@ -542,6 +545,5 @@ html
       color: #FFFFFF;
       }
       }
-    script(src='js\bootstrap.min.js')
 
 script(src='./js/pump.js')

@@ -3,60 +3,61 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Game
   script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/socket.io/socket.io.js')
-  link(rel='stylesheet' href='css/bootstrap.min.css')
+  script(src='/js/bootstrap.min.js')
+  script(src='/socket.io/socket.io.js')
+  link(rel='stylesheet' href='/css/bootstrap.min.css')
 .box-left
-  button.pump-1 Pump:1
-  button.minus-1
-    img(src='img\Minus Signminus.png')
-  p.p-1 1
-  button.plus-1(onclick='myFunction_plus()')
-    img(src='img\Vectorplus.png')
-  button.pump-2 Pump:2
-  button.minus-2
-    img(src='img\Minus Signminus.png')
-  p.p-2 1
-  button.plus-2(onclick='myFunction_plus()')
-    img(src='img\Vectorplus.png')
-  button.pump-3 Pump:3
-  button.minus-3
-    img(src='img\Minus Signminus.png')
-  p.p-3 1
-  button.plus-3(onclick='myFunction_plus()')
-    img(src='img\Vectorplus.png')
-  button.pump-4 Pump:4
-  button.minus-4
-    img(src='img\Minus Signminus.png')
-  p.p-4 1
-  button.plus-4(onclick='myFunction_plus()')
-    img(src='img\Vectorplus.png')
-  button.pump-5 Pump:5
-  button.minus-5
-    img(src='img\Minus Signminus.png')
-  p.p-5 1
-  button.plus-5(onclick='myFunction_plus()')
-    img(src='img\Vectorplus.png')
+  button.pump-1=name[0]
+  button.minus-1(onclick='minusMl("mlPump1",1)')
+    img(src='/img/Minus Signminus.png')
+  p.p-1#mlPump1=0
+  button.plus-1(onclick='addMl("mlPump1",1)')
+    img(src='/img/Vectorplus.png')
+  button.pump-2=name[1]
+  button.minus-2(onclick='minusMl("mlPump2",2)')
+    img(src='/img/Minus Signminus.png')
+  p.p-2#mlPump2=0
+  button.plus-2(onclick='addMl("mlPump2",2)')
+    img(src='/img/Vectorplus.png')
+  button.pump-3=name[2]
+  button.minus-3(onclick='minusMl("mlPump3",3)')
+    img(src='/img/Minus Signminus.png')
+  p.p-3#mlPump3=0
+  button.plus-3(onclick='addMl("mlPump3",3)')
+    img(src='/img/Vectorplus.png')
+  button.pump-4=name[3]
+  button.minus-4(onclick='minusMl("mlPump4",4)')
+    img(src='/img/Minus Signminus.png')
+  p.p-4#mlPump4=0
+  button.plus-4(onclick='addMl("mlPump4",4)')
+    img(src='/img/Vectorplus.png')
+  button.pump-5=name[4]
+  button.minus-5(onclick='minusMl("mlPump5",5)')
+    img(src='/img/Minus Signminus.png')
+  p.p-5#mlPump5=0
+  button.plus-5(onclick='addMl("mlPump5",5)')
+    img(src='/img/Vectorplus.png')
 .box-right
   .text Total Milliliters
-  button.accept(onclick='myFunction_accept()')
-    a Accept
-a(href='custom.html')
-  button.back Back
-a(href='Home.html')
-  button.home
-    img(src='img\VectorHome.png' style='padding-left: 35px;')
+  p.p-6#totalMl=0
+  a(href='/pyscript')
+    button.accept#acceptBtn Accept
+a(href='/custom')
+  button.back#backBtn2 Back
+a(href='/')
+  button.home#homeBtn
+    img(src='/img/VectorHome.png' style='padding-left: 35px;')
 #accept.already-noti
   button.close-already(onclick='close_already()')
-    img(src='img\close.png')
+    img(src='/img/close.png')
   .already Already recieve the order
-  img.download(src='img\Streamdownload.png')
+  img.download(src='/img/Streamdownload.png')
   .wait wait a moment...
 #plus.over-noti
   button.close-over(onclick='close_over()')
-    img(src='img\close.png')
+    img(src='/img/close.png')
   .over
-    img.error(src='img\error.png')
+    img.error(src='/img/error.png')
     | Over Limit!
 style.
   body{
@@ -152,7 +153,7 @@ style.
   }
   .p-1{
   position: absolute;
-  left: 462px;
+  left: 562px;
   top: 105;
   bottom: 0%;
   font-family: 'Inter';
@@ -165,7 +166,7 @@ style.
   }
   .p-2{
   position: absolute;
-  left: 562px;
+  left: 558px;
   top: 280px;
   bottom: 0%;
   font-family: 'Inter';
@@ -178,7 +179,7 @@ style.
   }
   .p-3{
   position: absolute;
-  left: 562px;
+  left: 550px;
   top: 440px;
   bottom: 0%;
   font-family: 'Inter';
@@ -191,7 +192,7 @@ style.
   }
   .p-4{
   position: absolute;
-  left: 558px;
+  left: 542px;
   top: 610px;
   bottom: 0%;
   font-family: 'Inter';
@@ -204,8 +205,21 @@ style.
   }
   .p-5{
   position: absolute;
-  left: 536px;
+  left: 515px;
   top: 755px;;
+  bottom: 0%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  /* identical to box height */
+  color: #303030;
+  }
+  .p-6 {
+  position: absolute;
+  left: 380px;
+  top: 200px;;
   bottom: 0%;
   font-family: 'Inter';
   font-style: normal;
@@ -921,17 +935,27 @@ style.
   border-style: none;
   }
   }
-script(src='js\bootstrap.min.js')
-script.
-  function myFunction_plus(){
-  document.getElementById("plus").style.display = "flex";
-  }
-  function myFunction_accept() {
-  document.getElementById("accept").style.display = "flex";
-  }
-  function close_already() {
-  document.getElementById("accept").style.display = "none";
-  }
-  function close_over() {
-  document.getElementById("plus").style.display = "none";
-  }
+script(src='/js/drinks.js')
+//- script.
+//-   function myFunction_plus(){
+//-   document.getElementById("plus").style.display = "flex";
+//-   }
+//-   function myFunction_accept() {
+//-   document.getElementById("accept").style.display = "flex";
+//-   }
+//-   function close_already() {
+//-   document.getElementById("accept").style.display = "none";
+//-   }
+//-   function close_over() {
+//-   document.getElementById("plus").style.display = "none";
+//-   }
+//- script.
+//-   function addMl(pumpId) {
+//-     var num
+//-     //- if (pumpId == 1) {
+//-     //-   pump1Text += 1;
+//-     //-   num = pump1Text;
+//-     //- }
+//-     document.getElementById("mlPump1").innerHTML = 5;
+//-     console.log('Increased')
+//-   }

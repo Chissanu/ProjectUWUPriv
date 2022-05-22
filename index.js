@@ -4,7 +4,9 @@ const path = require('path');
 const { spawn } = require('child_process');
 var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
 var amount = [0, 1, 2, 3, 4];
-var users = 0;
+var userCount = 0;
+var userArr = [];
+var user = [];
 
 // App setup
 var app = express();
@@ -92,12 +94,28 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
+function genNum() {
+    for (var i = 0; i < userCount; i++) {
+        userArr.push(String(i));
+    }
+}
+
 
 // Socket setup & pass server
 var io = socket(server);
 
 io.on('connection', function(socket) {
     console.log('made socket connection', socket.id);
+
+    socket.on('new-connection', userName => {
+        user.push(socket.id)
+        socket.broadcast.emit('connected', userName)
+        console.log(user)
+    })
+
+    socket.on('disconnect', () => {
+        delete user[socket.id];
+    });
 
     socket.on('gameBtn', function() {
         console.log('Running Game');
@@ -125,7 +143,8 @@ io.on('connection', function(socket) {
     // Create Room Btn
     socket.on('createBtn', function(data) {
         console.log("Room created");
-        users = 0;
+        userCount = 0;
+        user = [];
     });
 
     // Create Join Btn
@@ -133,14 +152,22 @@ io.on('connection', function(socket) {
         console.log('Joining Lobby...');
         console.log(data.name)
         io.sockets.emit('player-join', data)
-        users++;
+        userCount++;
     });
 
     // Receive signal from host game
     socket.on('start', function(data) {
+        index = 0
+        for (var i = 0; i < userCount; i++) {
+            userArr.push(String(i));
+        }
         console.log('starting');
-        io.sockets.emit('start', users)
-
+        io.sockets.emit('start', userCount);
+        var iterator = user.values();
+        for (let elements of iterator) {
+            io.to(elements).emit('num', index)
+            index++;
+        }
     });
 
     // Send signal to Python
@@ -168,6 +195,7 @@ io.on('connection', function(socket) {
     // Receive signal from custom drinks
     socket.on('acceptBtn', function(data) {
         amount = data.amount;
+        console.log(amount)
         console.log('Received Data from drinks')
 
     });

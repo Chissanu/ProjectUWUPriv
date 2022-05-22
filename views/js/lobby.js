@@ -8,6 +8,8 @@ var createBtn = document.getElementById('create'),
     userName = document.getElementById('name');
 
 // Emit events
+
+
 createBtn.addEventListener('click', function() {
     socket.emit('createBtn');
 });
@@ -17,5 +19,4 @@ joinBtn.addEventListener('click', function() {
         name: userName.value
     });
     userName.value = "";
-
 });
