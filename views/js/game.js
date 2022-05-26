@@ -32,6 +32,7 @@ socket.on('num', function(data) {
 
     } else {
         document.getElementById("id").innerHTML = num;
+        document.getElementById("id").style.fontSize = "380px";
         document.getElementById("img").style.display = "none";
         document.getElementById("newBtn").style.display = "none";
         document.getElementById("id").style.color = "#000000";
