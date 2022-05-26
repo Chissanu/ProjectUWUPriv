@@ -5,13 +5,13 @@ head
   script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/socket.io/socket.io.js')
-  link(rel='stylesheet' href='css/bootstrap.min.css')
+  link(rel='stylesheet' href='/css/bootstrap.min.css')
 .box
   a(href='/game')
     button.game#game Game
   a(href='/custom')
     button.custom
-      img(src='img/Cocktail.png')
+      img(src='/img/Cocktail.png')
       | Custom
 style.
   body{
@@ -81,19 +81,19 @@ style.
   }
   .box{
   position: absolute;
-  width: 600px;
-  height: 700px;
-  left: 80px;
-  top: 50%;
+  width: 375px;
+  height: 420px;
+  left: 4%;
+  top: 70%;
   background: #DDD4A2;
   border-radius: 73px;
   }
   .game{
   position: absolute;
-  width: 450px;
+  width: 340px;
   height: 150px;
-  left: 80px;
-  top: 390px;
+  left: 5%;
+  top: 55%;
   background: #7F58AF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
@@ -108,17 +108,17 @@ style.
   }
   .custom{
   position: absolute;
-  width: 450px;
+  width: 340px;
   height: 150px;
-  left: 80px;
-  top: 150px;
+  left: 5%;
+  top: 10%;
   background: #E84D8A;
   box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
-  font-size: 96px;
+  font-size: 70px;
   line-height: 116px;
   text-align: end;
   padding-right:30px ;
@@ -129,9 +129,8 @@ style.
   position: absolute;
   width: 96px;
   height: 96px;
-  left: 20px;
+  left: 1%;
   top: 23px;
   }
   }
 script(src='js/bootstrap.min.js')
-script(src='js/handler.js')

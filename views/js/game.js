@@ -22,11 +22,13 @@ socket.on('num', function(data) {
     console.log(data);
     num = data;
     if (num == 0) {
-        document.getElementById("title").innerHTML = "You are"
+        document.getElementById("title").innerHTML = "You are";
+        document.getElementById("id").style.fontSize = "120px";
         document.getElementById("id").innerHTML = "King!";
         document.getElementById("id").style.color = "#ebb859";
         document.getElementById("img").style.display = "block";
         document.getElementById("newBtn").style.display = "flex";
+
 
     } else {
         document.getElementById("id").innerHTML = num;
