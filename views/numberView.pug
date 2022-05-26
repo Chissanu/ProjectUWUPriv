@@ -11,12 +11,10 @@ html
     .box-in
       img.fairyTable#img(src='img/Fairytale.png')
       h1.rank#title You are number..
-      h1.no-1#id
+      h1.no-1#id ...
     a(href='/')
       button.exit#backBtn Exit
-    button.custom#customBtn
-      img.glass(src='img/Cocktail.png')
-      | Custom
+    button.new#newBtn New
     style.
       body{
       background: #F8ECAE;
@@ -51,13 +49,13 @@ html
       left: 270px;
       font-size: 100px;
       }
-      .custom{
+      .new{
       position: absolute;
       top:920px;
-      left: 1200px;
-      width: 350px;
+      left: 1280px;
+      width: 280px;
       height: 140px;
-      background: rgba(232, 77, 138, 1);
+      background: #35a4d4;
       box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
       border-radius: 50px;
       font-family: 'Inter';
@@ -65,11 +63,12 @@ html
       font-weight: 700;
       font-size:70px;
       line-height: 29px;
-      display: none;
+      display: flex;
       align-items: center;
       text-align: center;
       color: #FFFFFF;
       border: 0px;
+      padding-left: 80px
       }
       .rank{
       position: absolute;

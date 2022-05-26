@@ -5,8 +5,9 @@ const { spawn } = require('child_process');
 var drinks = ['Pump:1', 'Pump:2', 'Pump:3', 'Pump:4', 'Pump:5'];
 var amount = [0, 1, 2, 3, 4];
 var userCount = 0;
-var userArr = [];
+var numArr = []
 var user = [];
+
 
 // App setup
 var app = express();
@@ -39,10 +40,6 @@ app.get('/game/lobby/create', function(req, res) {
 
 app.get('/custom/drinks', function(req, res) {
     res.render('makeDrink', { name: drinks });
-});
-
-app.get('/loading', function(req, res) {
-    res.render('waiting');
 });
 
 app.get('/king', function(req, res) {
@@ -94,12 +91,17 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-function genNum() {
-    for (var i = 0; i < userCount; i++) {
-        userArr.push(String(i));
-    }
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
 }
 
+function genNum() {
+    numArr = [];
+    for (var i = 0; i < userCount; i++) {
+        numArr.push(i);
+    }
+    shuffle(numArr);
+}
 
 // Socket setup & pass server
 var io = socket(server);
@@ -158,33 +160,30 @@ io.on('connection', function(socket) {
     // Receive signal from host game
     socket.on('start', function(data) {
         index = 0
-        for (var i = 0; i < userCount; i++) {
-            userArr.push(String(i));
-        }
+
         console.log('starting');
         io.sockets.emit('start', userCount);
+        genNum();
+        console.log(numArr)
         var iterator = user.values();
+
         for (let elements of iterator) {
-            io.to(elements).emit('num', index)
+            io.to(elements).emit('num', numArr[index])
             index++;
         }
     });
 
-    // Send signal to Python
-    socket.on('pump1Btn', function() {
-        console.log('Pumping 1');
-    });
-    socket.on('pump2Btn', function() {
-        console.log('Pumping 2');
-    });
-    socket.on('pump3Btn', function() {
-        console.log('Pumping 3');
-    });
-    socket.on('pump4Btn', function() {
-        console.log('Pumping 4');
-    });
-    socket.on('pump5Btn', function() {
-        console.log('Pumping 5');
+    socket.on('new-game', function() {
+        index = 0
+        console.log("Creating new game")
+        io.sockets.emit('start', userCount);
+        genNum();
+        var iterator = user.values();
+        for (let elements of iterator) {
+            io.to(elements).emit('num', numArr[index])
+            index++;
+        }
+        console.log(userCount)
     });
 
     // Received drink names

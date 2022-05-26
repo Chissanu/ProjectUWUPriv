@@ -14,13 +14,44 @@ html
         img.img(src='/img/Fairytale_white.png')
         | King Game
       .users#users 
-      button.back#start Start
+      button.start#start Start
+      a(href='/custom/drinks')
+        button.custom#customBtn Custom
+      img.glass(src='/img/Cocktail.png')
+      | 
     style.
       body{
       position: relative;
       width: 100%;
       height: 100%;
       background: #DDD4A2;
+      }
+      .glass{
+        position: absolute;
+        top:860px;
+        left: 1180px;
+        width: 80px;
+        height: 80px;
+      }
+      .custom{
+      position: absolute;
+      top:832px;
+      left: 1000px;
+      width: 280px;
+      height: 140px;
+      background: rgba(232, 77, 138, 1);
+      box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size:50px;
+      line-height: 29px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #FFFFFF;
+      border: 0px;
       }
       .users{
       position: absolute;
@@ -90,7 +121,7 @@ html
       bottom: 15px;
       right: 20px;
       }
-      .back{
+      .start{
       display: flex;
       flex-direction: row;
       align-items: flex-start;
@@ -181,7 +212,7 @@ html
       bottom: 15px;
       right: 20px;
       }
-      .back{
+      .start{
       display: flex;
       flex-direction: row;
       align-items: flex-start;
