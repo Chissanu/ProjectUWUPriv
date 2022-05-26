@@ -39,6 +39,7 @@ app.get('/game/lobby/create', function(req, res) {
 });
 
 app.get('/custom/drinks', function(req, res) {
+    setInterval(callPython,1000);
     res.render('makeDrink', { name: drinks });
 });
 
@@ -47,10 +48,10 @@ app.get('/king', function(req, res) {
 });
 
 
-function callPython(pump, time) {
-    console.log(pump)
-    console.log(time)
-    const python = spawn('python', ['python/pump.py', pump, time]);
+function callPython() {
+    console.log("Sensor is running")
+
+    const ifSensor = spawn('python', ['python/if.py']);
 }
 
 // app.get('/pyscript', (req, res) => {
